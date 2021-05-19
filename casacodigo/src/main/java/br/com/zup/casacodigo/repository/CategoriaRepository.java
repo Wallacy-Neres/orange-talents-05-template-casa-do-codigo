@@ -5,11 +5,11 @@ import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import br.com.zup.casacodigo.modelo.Autor;
+import br.com.zup.casacodigo.modelo.Categoria;
 
 @Repository
-public interface AutorRepository extends JpaRepository<Autor, Long>{
+public interface CategoriaRepository extends JpaRepository<Categoria, Long>{
 
-	Optional<Autor> findByEmail(String email);
+	Optional<Categoria> findByNome(String nome);
 	
 }

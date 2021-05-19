@@ -11,30 +11,30 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.zup.casacodigo.config.validacao.ProibeEmailDuplicadoValidator;
-import br.com.zup.casacodigo.controller.form.AutorForm;
-import br.com.zup.casacodigo.modelo.Autor;
-import br.com.zup.casacodigo.repository.AutorRepository;
+import br.com.zup.casacodigo.config.validacao.ProibeCategoriaDuplicadaValidator;
+import br.com.zup.casacodigo.controller.form.CategoriaForm;
+import br.com.zup.casacodigo.modelo.Categoria;
+import br.com.zup.casacodigo.repository.CategoriaRepository;
 
 @RestController
-@RequestMapping("/autor")
-public class AutorController {
+@RequestMapping("/categoria")
+public class CategoriaController {
 	
 	@Autowired
-	private AutorRepository autorRepository;
+	private CategoriaRepository categoriaRepository;
 	
 	@Autowired
-	private ProibeEmailDuplicadoValidator proibeEmeilDuplicadoValidator;
+	private ProibeCategoriaDuplicadaValidator proibeCategoriaDuplicada;
 	
 	@InitBinder
 	public void init(WebDataBinder binder) {
-		binder.addValidators(proibeEmeilDuplicadoValidator);
+		binder.addValidators(proibeCategoriaDuplicada);
 	}
 	
 	@PostMapping
-	public ResponseEntity<AutorForm> cadastrar(@RequestBody @Valid AutorForm autorForm){
-		Autor autor = autorForm.conveter(autorForm);
-		autorRepository.save(autor);
+	public ResponseEntity<CategoriaForm> cadastrarCategoria(@RequestBody @Valid CategoriaForm categoriaForm){
+		Categoria categoria = categoriaForm.converter();
+		categoriaRepository.save(categoria);
 		return ResponseEntity.ok().build();
 	}
 }

@@ -13,7 +13,7 @@ import br.com.zup.casacodigo.modelo.Autor;
 import br.com.zup.casacodigo.repository.AutorRepository;
 
 @Component
-public class ProibeEmeailDuplicadoValidator implements Validator{
+public class ProibeEmailDuplicadoValidator implements Validator{
 	
 	@Autowired
 	private AutorRepository autorRepository;
