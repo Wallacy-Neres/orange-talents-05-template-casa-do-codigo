@@ -13,6 +13,8 @@ import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.Length;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 @Entity
 public class Autor {
 	
@@ -41,6 +43,7 @@ public class Autor {
 	private String descricao;
 	
 	@NotNull
+	@JsonFormat(pattern = "yyyy-MM-dd HH:mm")
 	private LocalDateTime dataCriacao = LocalDateTime.now();
 	
 	public Autor() {
