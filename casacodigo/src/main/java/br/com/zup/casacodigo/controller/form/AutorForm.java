@@ -7,6 +7,7 @@ import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.Length;
 
+import br.com.zup.casacodigo.config.validacao.UniqueValue;
 import br.com.zup.casacodigo.modelo.Autor;
 
 
@@ -21,6 +22,7 @@ public class AutorForm {
 	@NotEmpty
 	@Length(max = 30)
 	@Email
+	@UniqueValue(domaiClass = Autor.class, fieldName = "email", message = "Já existe este email cadastrado")
 	private String email;
 
 	@NotNull
