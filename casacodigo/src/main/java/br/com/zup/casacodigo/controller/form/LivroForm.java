@@ -63,11 +63,10 @@ public class LivroForm {
 	@ValidaSeTemIdValue(domaiClass = Autor.class, message = "ID não pode ser nulo")
 	private Long autorId;
 	
-	public LivroForm(String titulo, String resumo, String sumario, BigDecimal preco, Integer paginas, 
+	public LivroForm(String titulo, String resumo, BigDecimal preco, Integer paginas, 
 			String isbn, Long autor, Long categoria) {
 		this.titulo = titulo;
 		this.resumo = resumo;
-		this.sumario = sumario;
 		this.preco = preco;
 		this.paginas = paginas;
 		this.isbn = isbn;
@@ -83,7 +82,15 @@ public class LivroForm {
 		this.dataPublicacao = dataPublicacao;
 	}
 
+	
 
+	public String getSumario() {
+		return sumario;
+	}
+
+	public void setSumario(String sumario) {
+		this.sumario = sumario;
+	}
 
 	public Long getCategoriaId() {
 		return categoriaId;
@@ -108,7 +115,7 @@ public class LivroForm {
 	public Livro converter(EntityManager entityManager) {
 		Autor autor = entityManager.find(Autor.class, autorId);
 		Categoria categoria = entityManager.find(Categoria.class, categoriaId);
-		return new Livro(titulo, resumo, sumario, preco, paginas, isbn, dataPublicacao, autor, categoria);
+		return new Livro(titulo, resumo, preco, paginas, isbn, dataPublicacao, autor, categoria);
 	}
 	
 }

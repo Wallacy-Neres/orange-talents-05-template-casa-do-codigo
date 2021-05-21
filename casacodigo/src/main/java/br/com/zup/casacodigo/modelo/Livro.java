@@ -68,11 +68,10 @@ public class Livro {
 		
 	}
 	
-	public Livro(String titulo, String resumo, String sumario, BigDecimal preco, Integer paginas, 
+	public Livro(String titulo, String resumo, BigDecimal preco, Integer paginas, 
 			String isbn, LocalDate dataPublicacao, Autor autor, Categoria categoria) {
 		this.titulo = titulo;
 		this.resumo = resumo;
-		this.sumario = sumario;
 		this.preco = preco;
 		this.paginas = paginas;
 		this.isbn = isbn;
@@ -99,6 +98,10 @@ public class Livro {
 
 	public String getResumo() {
 		return resumo;
+	}
+
+	public void setSumario(String sumario) {
+		this.sumario = sumario;
 	}
 
 	public String getSumario() {
