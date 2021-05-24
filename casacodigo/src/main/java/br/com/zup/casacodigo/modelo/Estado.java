@@ -18,7 +18,6 @@ public class Estado {
 	private Long id;
 	
 	@NotBlank
-	@NotNull
 	private String nome;
 	
 	@NotNull

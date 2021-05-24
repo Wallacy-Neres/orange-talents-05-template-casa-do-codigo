@@ -8,7 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.Email;
-import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.Length;
@@ -24,21 +24,18 @@ public class Autor {
 	private Long id;
 	
 	@Column(name = "NM_NOME", nullable = false, length = 30)
-	@NotNull
-	@NotEmpty
+	@NotBlank
 	@Length(max = 30)
 	private String nome;
 	
 	@Column(name = "NM_EMAIL", nullable = false, length = 30, unique = true)
-	@NotNull
-	@NotEmpty
+	@NotBlank
 	@Length(max = 30)
 	@Email
 	private String email;
 	
 	@Column(name = "NM_DESCRICAO", length = 400)
-	@NotNull
-	@NotEmpty
+	@NotBlank
 	@Length(max = 400)
 	private String descricao;
 	

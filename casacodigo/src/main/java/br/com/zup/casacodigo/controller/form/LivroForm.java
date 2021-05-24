@@ -26,12 +26,10 @@ import br.com.zup.casacodigo.modelo.Livro;
 public class LivroForm {
 	
 	@NotBlank
-	@NotNull
 	@UniqueValue(domaiClass = Livro.class, fieldName = "titulo", message = "Já existe um livro com este titulo")
 	private String titulo;
 	
 	@NotBlank
-	@NotNull
 	@Length(max = 500)
 	private String resumo;
 	

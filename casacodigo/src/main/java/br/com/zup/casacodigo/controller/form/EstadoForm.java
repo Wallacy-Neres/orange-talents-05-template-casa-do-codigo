@@ -12,7 +12,6 @@ import br.com.zup.casacodigo.repository.PaisRepository;
 
 public class EstadoForm {
 	
-	@NotNull
 	@NotBlank
 	private String nome;
 	

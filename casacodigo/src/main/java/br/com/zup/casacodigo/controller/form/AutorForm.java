@@ -2,8 +2,7 @@ package br.com.zup.casacodigo.controller.form;
 
 import javax.validation.Valid;
 import javax.validation.constraints.Email;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.NotBlank;
 
 import org.hibernate.validator.constraints.Length;
 
@@ -13,20 +12,17 @@ import br.com.zup.casacodigo.modelo.Autor;
 
 public class AutorForm {
 
-	@NotNull
-	@NotEmpty
+	@NotBlank
 	@Length(max = 30)
 	private String nome;
 
-	@NotNull
-	@NotEmpty
+	@NotBlank
 	@Length(max = 30)
 	@Email
 	@UniqueValue(domaiClass = Autor.class, fieldName = "email", message = "Já existe este email cadastrado")
 	private String email;
 
-	@NotNull
-	@NotEmpty
+	@NotBlank
 	@Length(max = 400)
 	private String descricao;
 

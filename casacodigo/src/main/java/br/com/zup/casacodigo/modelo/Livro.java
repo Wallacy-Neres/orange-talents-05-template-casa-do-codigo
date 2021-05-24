@@ -29,11 +29,9 @@ public class Livro {
 	private Long id;
 	
 	@NotBlank
-	@NotNull
 	private String titulo;
 	
 	@NotBlank
-	@NotNull
 	@Length(max = 500)
 	private String resumo;
 	

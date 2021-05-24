@@ -17,4 +17,5 @@ public interface EstadoRepository extends JpaRepository<Estado, Long>{
 	
 	@Query("Select e from Estado e where e.nome =:nomeParam And pais.id = :pais")
 	public Optional<Estado> findEstadoBanco(@Param("nomeParam") String nome, @Param("pais") Long id);
+
 }
