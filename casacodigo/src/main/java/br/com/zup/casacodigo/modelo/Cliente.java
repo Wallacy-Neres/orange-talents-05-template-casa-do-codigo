@@ -49,7 +49,7 @@ public class Cliente {
 	@ManyToOne
 	private Pais pais;
 	
-	@ManyToOne(optional = true)
+	@ManyToOne
 	private Estado estado;
 	
 	public Cliente() {

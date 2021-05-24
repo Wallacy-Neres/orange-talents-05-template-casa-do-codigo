@@ -16,7 +16,7 @@ public class EstadoForm {
 	private String nome;
 	
 	@NotNull
-	@ValidaSeTemIdValue(domaiClass = Pais.class, message = "ID não pode ser nulo")
+	@ValidaSeTemIdValue(domaiClass = Pais.class, message = "Não existe um país cadastrado com este ID")
 	private Long paisId;
 	
 	public Long getPaisId() {

@@ -7,6 +7,7 @@ import javax.validation.constraints.NotBlank;
 
 import br.com.zup.casacodigo.config.validacao.UniqueValue;
 import br.com.zup.casacodigo.config.validacao.ValidaCPFouCNPJValue.CPFOrCNPJ;
+import br.com.zup.casacodigo.config.validacao.ValidaPaisEstadoValue;
 import br.com.zup.casacodigo.config.validacao.ValidaSeTemIdValue;
 import br.com.zup.casacodigo.modelo.Cliente;
 import br.com.zup.casacodigo.modelo.Estado;
@@ -14,6 +15,7 @@ import br.com.zup.casacodigo.modelo.Pais;
 import br.com.zup.casacodigo.repository.EstadoRepository;
 import br.com.zup.casacodigo.repository.PaisRepository;
 
+@ValidaPaisEstadoValue
 public class ClienteForm {
 	
 	@Email
@@ -47,7 +49,7 @@ public class ClienteForm {
 	@NotBlank
 	private String cep;
 	
-	@ValidaSeTemIdValue(domaiClass = Pais.class, message = "ID não pode ser nulo")
+	@ValidaSeTemIdValue(domaiClass = Pais.class, message = "Não existe um país cadastrado com este ID")
 	private Long paisId;
 	
 	private Long estadoId;
