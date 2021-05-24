@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import br.com.zup.casacodigo.controller.dto.ClienteDto;
 import br.com.zup.casacodigo.controller.form.ClienteForm;
 import br.com.zup.casacodigo.modelo.Cliente;
 import br.com.zup.casacodigo.repository.EstadoRepository;
@@ -29,9 +30,10 @@ public class ClienteController {
 	private EstadoRepository estadoRespository;
 	
 	@PostMapping
-	public ResponseEntity<?> cadastrarCliente(@RequestBody @Valid ClienteForm clienteForm){
+	public ResponseEntity<ClienteDto> cadastrarCliente(@RequestBody @Valid ClienteForm clienteForm){
 		Cliente cliente = clienteForm.converter(paisRepository, estadoRespository);
 		clienteRepository.save(cliente);
-		return null;
+		ClienteDto dto = new ClienteDto(cliente);
+		return ResponseEntity.ok(dto);
 	}
 }
