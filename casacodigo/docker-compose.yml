@@ -1,0 +1,31 @@
+version: "3"
+services:
+ casacodigo:
+  container_name: casadocodigo
+  build:
+   context: ./
+   dockerfile: ./Dockerfile
+  image: wallacyneres/casacodigo
+  ports:
+   - "8080:8080"
+  links: 
+   - db
+  depends_on:
+   - db
+  restart: always
+  networks:
+   - minha-rede
+ db:
+  image: mysql:8.0.23
+  ports:
+   - "3307:3306"
+  environment:
+   - MYSQL_DATABASE=db_casaCodigo
+   - MYSQL_ROOT_PASSWORD=SENHADOBANCO
+  volumes:
+   - ./docker/volume_mysql:/var/lib/mysql
+  networks:
+   - minha-rede
+networks:
+   minha-rede:
+     driver: bridge
